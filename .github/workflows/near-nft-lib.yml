@@ -1,4 +1,6 @@
 on:
+  workflow_dispatch:
+
   push:
     branches:
       - main
@@ -14,6 +16,5 @@ jobs:
     with:
       package_path: "./packages/near-nft-lib/package.json"
     secrets:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
