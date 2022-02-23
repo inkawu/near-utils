@@ -1,5 +1,6 @@
 import { Near } from '@inkawu/near-api'
 import { NFTContractMetadata, TokenData } from '../types/nft-metadata.js'
+import { ExecutionError } from './errors.js'
 import { numArrToString } from './helpers.js'
 
 export class NftClient {
@@ -35,7 +36,7 @@ export class NftClient {
     if (response?.result) {
       return JSON.parse(numArrToString(response.result)) as T
     } else {
-      throw new Error('Execution error')
+      throw new ExecutionError(response.error!) // eslint-disable-line
     }
   }
 
