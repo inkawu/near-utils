@@ -4,6 +4,7 @@ on:
       package_path:
         required: true
         description: The path to the package.json file to publish
+        type: string
     secrets:
       GH_TOKEN:
         required: true
