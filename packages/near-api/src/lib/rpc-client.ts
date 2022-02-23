@@ -1,7 +1,7 @@
 import type KyInstance from 'ky'
 import { Responses } from '@inkawu/near-api-types'
 import ky from 'ky-universal'
-import { InvalidUrlError } from './errors.js'
+import { InvalidUrlError, RpcError } from './errors.js'
 
 export type Result<T> = {
   ok: true
@@ -29,7 +29,7 @@ export class RpcClient {
     return new this(url)
   }
 
-  async call <T extends Responses.JsonRpcResponse<T['result'], T['error']>>(method: string, params: any): Promise<Result<T['result']> | Error<T['error']>> {
+  async call <T extends Responses.JsonRpcResponse<T['result'], T['error']>>(method: string, params: any): Promise<NonNullable<T['result']>> {
     const response = await this.client.post('', {
       json: {
         id: 'dontcare',
@@ -41,16 +41,12 @@ export class RpcClient {
 
     const body = await response.json() as T
 
-    if (body.result) {
-      return {
-        ok: true,
-        result: body.result! // eslint-disable-line
-      }
+    if ('result' in body && body.result) {
+      // @ts-expect-error
+      return body.result // eslint-disable-line
     } else {
-      return {
-        ok: false,
-        error: body.error! // eslint-disable-line
-      }
+      // @ts-expect-error
+      throw new RpcError(body.error!) // eslint-disable-line
     }
   }
 }
