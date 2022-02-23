@@ -27,7 +27,7 @@
     "url": "https://github.com/inkawu/near-api.git"
   },
   "dependencies": {
-    "@inkawu/near-api": "*",
-    "@inkawu/near-api-types": "*"
+    "@inkawu/near-api": "0.2.6",
+    "@inkawu/near-api-types": "0.5.0"
   }
 }
