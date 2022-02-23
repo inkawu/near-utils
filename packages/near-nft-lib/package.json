@@ -1,6 +1,6 @@
 {
   "name": "@inkawu/near-nft-lib",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "A library for fetching nft data",
   "type": "module",
   "exports": "./dist/index.js",

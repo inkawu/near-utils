@@ -36,7 +36,7 @@ export class NftClient {
     if (response?.result) {
       return JSON.parse(numArrToString(response.result)) as T
     } else {
-      throw new ExecutionError(response.error!) // eslint-disable-line
+      throw new ExecutionError(response.error!, response) // eslint-disable-line
     }
   }
 
