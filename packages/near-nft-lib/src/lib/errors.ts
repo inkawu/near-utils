@@ -1,7 +1,9 @@
 export class NearNftError extends Error {
-  constructor (message: string) {
+  data: unknown
+  constructor (message: string, data?: unknown) {
     super(message)
     this.name = this.constructor.name
+    this.data = data
   }
 }
 
