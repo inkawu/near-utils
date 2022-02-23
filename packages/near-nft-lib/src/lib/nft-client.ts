@@ -1,13 +1,7 @@
 import { Near } from '@inkawu/near-api'
-import { Errors } from '@inkawu/near-api-types'
-import { Error } from '@inkawu/near-api/dist/lib/rpc-client'
 import { NFTContractMetadata, TokenData } from '../types/nft-metadata.js'
 import { numArrToString } from './helpers.js'
 
-export type DataResult<T> = {
-  ok: true
-  data: T
-}
 export class NftClient {
   private readonly near: Near
 
@@ -38,13 +32,10 @@ export class NftClient {
       args
     })
 
-    if (response.ok && response.result.result) {
-      return {
-        ok: true,
-        data: JSON.parse(numArrToString(response.result.result)) as T
-      } as DataResult<T>
+    if (response?.result) {
+      return JSON.parse(numArrToString(response.result)) as T
     } else {
-      return response as Error<Errors.FunctionCall>
+      throw new Error('Execution error')
     }
   }
 
@@ -129,10 +120,8 @@ export class NftClient {
       this.nftToken(contract, tokenId)
     ])
 
-    if ('data' in contractMetadata && 'data' in tokenData) {
-      if (!tokenData.data?.metadata.media || !contractMetadata.data.base_uri) return null
-      return `${contractMetadata.data.base_uri}${tokenData.data.metadata.media}`
-    }
-    return null
+    if (!tokenData) return null
+
+    return `${contractMetadata.base_uri}${tokenData.metadata.media}`
   }
 }
