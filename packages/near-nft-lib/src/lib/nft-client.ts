@@ -84,7 +84,7 @@ export class NftClient {
       args: {
         account_id: account,
         from_index: fromIndex.toString(),
-        limit
+        limit: limit.toString()
       }
     })
   }
@@ -103,7 +103,7 @@ export class NftClient {
       accountId: contract,
       args: {
         from_index: fromIndex.toString(),
-        limit
+        limit: limit.toString()
       }
     })
   }
