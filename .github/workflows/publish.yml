@@ -47,5 +47,5 @@ jobs:
       - name: Publish package
         uses: JS-DevTools/npm-publish@v1
         with:
-          package: ${{ inputs.package_path }}
+          package: "${{ inputs.package_path }}package.json"
           token: ${{ secrets.NPM_TOKEN }}
