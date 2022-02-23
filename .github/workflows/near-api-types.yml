@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - packages/near-api-types/**
+
+permissions:
+  contents: write
+
+jobs:
+  package-commit-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/publish.yml
+        with:
+          package_path: "./packages/near-api-types/"
+        secrets:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+

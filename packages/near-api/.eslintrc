@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": "standard-with-typescript",
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/consistent-type-definitions": [
+      1,
+      "type"
+    ],
+    "@typescript-eslint/prefer-reduce-type-parameter": "off",
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/dot-notation": "off" 
+  }
+}

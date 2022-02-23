@@ -1,0 +1,34 @@
+{
+  "name": "@inkawu/near-api",
+  "version": "0.2.6",
+  "description": "A client for the near jsonrpc api",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "node --loader ts-node/esm src/main.ts",
+    "build": "tsc"
+  },
+  "author": "inkawu",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^17.0.18",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard-with-typescript": "^21.0.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inkawu/near-api.git"
+  },
+  "dependencies": {
+    "@inkawu/near-api-types": "*",
+    "ky": "^0.29.0",
+    "ky-universal": "^0.10.0"
+  }
+}

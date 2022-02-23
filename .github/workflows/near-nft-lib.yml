@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - packages/near-nft-lib/**
+
+permissions:
+  contents: write
+
+jobs:
+  package-commit-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/publish.yml
+        with:
+          package_path: "./packages/near-nft-lib/"
+        secrets:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
