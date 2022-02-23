@@ -1,6 +1,6 @@
 {
   "name": "@inkawu/near-api-types",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Types for the jsonrpc api on near",
   "main": "dist/index.js",
   "type": "module",
