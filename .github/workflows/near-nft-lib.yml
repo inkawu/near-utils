@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   package-commit-publish:
-    uses: ./.github/workflows/publish.yml
+    uses: inkawu/actions/workflows/npm-version-publish.yml@main
     with:
       package_path: "./packages/near-nft-lib/"
     secrets:
