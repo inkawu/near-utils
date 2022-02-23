@@ -12,7 +12,7 @@ jobs:
   package-commit-publish:
     uses: inkawu/actions/.github/workflows/npm-version-publish.yml@main
     with:
-      package_path: "./packages/near-api/"
+      package_path: "./packages/near-api/package.json"
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

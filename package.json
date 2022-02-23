@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "build:all": "npm run build -w @inkawu/near-api-types && npm run build -w @inkawu/near-api && npm run build -w @inkawu/near-nft-lib"
+    "build": "npm run build -w @inkawu/near-api-types && npm run build -w @inkawu/near-api && npm run build -w @inkawu/near-nft-lib"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.33.0",
