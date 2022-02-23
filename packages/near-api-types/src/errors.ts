@@ -153,6 +153,25 @@ export type UnknownEpoch = HandlerError<{
   name: 'UNKNOWN_EPOCH'
 }>
 
+export type AllCauses =
+  UnknownTransaction |
+  UnknownBlock |
+  InvalidAccount |
+  UnknownAccount |
+  NoContractCode |
+  TooLargeContractState |
+  NoSyncedBlocks |
+  UnavailableShard |
+  UnknownAccessKey |
+  ContractExecutionError |
+  NotSyncedYet |
+  UnknownChunk |
+  InvalidShardId |
+  UnknownReceipt |
+  InvalidTransaction |
+  TimeoutError |
+  UnknownEpoch
+
 export type Query =
   NoSyncedBlocks |
   UnavailableShard |
