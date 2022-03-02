@@ -1,3 +1,4 @@
+import type { Options } from 'ky'
 import { Near } from '@inkawu/near-api'
 import { NFTContractMetadata, TokenData } from '../types/nft-metadata.js'
 import { ExecutionError } from './errors.js'
@@ -6,16 +7,16 @@ import { numArrToString } from './helpers.js'
 export class NftClient {
   private readonly near: Near
 
-  private constructor (urlOrNear: string | Near) {
+  private constructor (urlOrNear: string | Near, options?: Options) {
     if (urlOrNear instanceof Near) {
       this.near = urlOrNear
     } else {
-      this.near = Near.create(urlOrNear)
+      this.near = Near.create(urlOrNear, options)
     }
   }
 
-  static create (urlOrNear: string | Near) {
-    return new this(urlOrNear)
+  static create (urlOrNear: string | Near, options?: Options) {
+    return new this(urlOrNear, options)
   }
 
   private async contractCall <T>({
