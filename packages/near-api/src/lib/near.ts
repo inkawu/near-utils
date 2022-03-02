@@ -1,15 +1,16 @@
 import type { Responses, Params, AccountId, BlockId, ChunkHash, CryptoHash, Finality, PublicKey, ShardId } from '@inkawu/near-api-types'
+import { Options } from 'ky'
 import { RpcClient } from './rpc-client.js'
 
 export class Near {
   private readonly rpcClient: RpcClient
 
-  private constructor (url: string) {
-    this.rpcClient = RpcClient.create(url)
+  private constructor (url: string, options?: Options) {
+    this.rpcClient = RpcClient.create(url, options)
   }
 
-  static create (url: string) {
-    return new this(url)
+  static create (url: string, options?: Options) {
+    return new this(url, options)
   }
 
   async functionCall ({
