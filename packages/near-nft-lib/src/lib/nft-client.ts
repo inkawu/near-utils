@@ -124,6 +124,9 @@ export class NftClient {
 
     if (!tokenData) return null
 
-    return `${contractMetadata.base_uri}${tokenData.metadata.media}`
+    return {
+      baseUri: contractMetadata.base_uri,
+      media: tokenData.metadata.media
+    }
   }
 }
